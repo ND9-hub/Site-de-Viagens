@@ -1,0 +1,686 @@
+﻿<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <!-- codificação -->
+        <meta charset="utf-8">
+        <!-- técnicas de SEO -->
+        <meta http-equiv="content-language" content="pt-br">
+        <meta name="author" content="Natanael Duarte">
+        <meta name="reply-to" content="natanaelddr@gmail.com">
+        <meta name="description" content="Quer planejar uma viagem agora mesmo? Encontrou o site certo! NDVôos viagens.">
+        <meta name="keywords" content="viagens, ferias, aeoroporto">
+        <meta name="robots" content="index, follow">
+        <!-- superior da página -->
+        <title>NVôos</title>
+        <link rel="shortcut icon" href="img/ND.png">
+        <!-- CSS online -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <!-- CSS externo -->
+        <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    </head>
+    <body>
+        <!-- Início do Modal -->
+        <div id="modal_pai">
+            
+            <div id="modal">    
+                    <a id="fechar" onclick="fecharModal()" style="cursor:pointer;">X</a>
+                    <form action="" id="logar">
+                        <label class="logar">
+                            <div><p>Nome</p>
+                            <input type="text" id="nome" name="n_nome">
+                            </div>
+                        </label>
+                        <label>
+                            <div>
+                            <p>Telefone</p>
+                            <input type="text" id="telefone" name="n_telefone">
+                            </div>
+                        </label>
+                        <label >
+                            <div>
+                            <p>Email</p>
+                            <input type="email" id="email" name="n_email">
+                            </div>
+                        </label>
+ 
+                        <p>
+                        <input type="button" value="Cadastre-se" onclick="entrar (),  validar ()">
+                        <input type="reset" value="Limpar">
+                        </p>
+                        <p id="mensagem" class="logar">
+                        </p>
+                        <p id="compra">a</p>
+                    </form>
+            </div>
+        </div>
+        <!-- Fim do Modal-->
+        
+        <!-- Início da janela bagagem -->
+        <div id="bagagem_pai">
+            
+            <div id="bagagem">    
+                    <a id="fechar1" onclick="fecharBagagem()" style="cursor:pointer;">X</a>
+                    <form action="" id="logar">
+                        <label>
+                            Quantia de bagagens: 
+                            <input type="number" min="0" max="5" checked="" id="quantia_bagagens">
+                        </label>
+                    </form>
+            </div>
+        </div>
+        <!-- Fim da janela bagagem -->
+        
+        <!-- Início da janela hotel -->
+        <div id="hotel_pai">
+            
+            <div id="hotel">    
+                    <a id="fechar2" onclick="fecharHotel()" style="cursor:pointer;">X</a>
+                    <form action="" id="logar">
+                        <p>Hospedagem?</p>
+                        <label>
+                            Sim:
+                            <input type="radio" name="h" checked>
+                        </label>
+                        <label>
+                            Não:
+                            <input type="radio" name="h">
+                        </label>
+                    </form>
+            </div>
+        </div>
+        <!-- Fim da janela hotel -->
+        
+        <!-- Início da janela contato -->
+        <div id="contato_pai">
+            
+            <div id="contato">    
+                    <a id="fechar3" onclick="fecharContato()" style="cursor:pointer;">X</a>
+                    <form>
+                        <p>
+                            Para esclarecimentos entre em contato conosco.
+                        </p>
+                        <h4>(51) 9999-1000</h4>
+                    </form>
+            </div>
+        </div>
+        <!-- Fim da janela contato -->
+        
+        <!-- Início da janela redes sociais -->
+        <div id="redes_sociais_pai">
+            
+            <div id="redes_sociaiss">    
+                    <a id="fechar4" onclick="fecharRedesSociais()" style="cursor:pointer;">X</a>
+                    <form action="" id="logar">
+                    <div id="redes_sociais">
+                    <a id="facebook" title="Facebook" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a id="twitter" title="Twitter" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a id="google" title="Google +" href="https://myaccount.google.com/" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+                    <a id="instagram" title="Instagram" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a id="gmail" title="Email" href="https://mail.google.com/" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                </div>
+                    </form>
+            </div>
+        </div>
+        <!-- Fim da janela redes sociais -->
+        
+        <!-- recursos do lado esquerdo da tela-->
+        <section id="recursos_pai">
+            <section id="recursos">
+                <a style="cursor:pointer;" onclick="abrirBagagem()" title="bagagem">
+                    <i class="fa fa-suitcase" aria-hidden="true"></i></a>
+                <a style="cursor:pointer;" onclick="abrirHotel()" aria-hidden="true" title="hospedagem">
+                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                </a>
+                <a style="cursor:pointer;" onclick="abrirModal()"><i class="fa fa-address-card-o" aria-hidden="true" title="conta"></i></a>
+                <a style="cursor:pointer;" onclick="abrirContato()"><i class="fa fa-phone" aria-hidden="true" title="contato"></i></a>
+                <a style="cursor:pointer;" onclick="abrirRedesSociais()" title="redes sociais"><i class="fa fa-users" aria-hidden="true"></i></a>
+
+            </section>
+            </section>
+        <header id="topo">
+            <a href="">
+                <img src="img/ND.png">
+                <p>
+                    <h3>N</h3>
+                    <h2>Vôos</h2>
+                </p>
+            </a>
+            
+            <!-- parte de cima -->
+            <section id="opcoes_fundo">
+                <section id="opcoes_pai">
+                    <ul>
+                        <a href="#"><li>INICIAL</li></a>
+                        <a href="#conteudo_inicial"><li>VIAGENS</li></a>
+                        <a href="#conteudo_flex"><li>MAIS</li></a>
+                    </ul>
+                </section>
+            </section>
+        </header>
+        
+        <!-- início do conteúdo -->
+        <div id="principal">
+        
+        <!-- início do carousel Bootstrap CDN -->
+        <aside class="conteudo_pai" id="carousel">
+            <section>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="img/carousel22.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="img/carousel11.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="img/carousel33.png" alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </section>
+        </aside>
+        <!-- fim carousel Bootstrap CDN -->
+        
+        <!-- início do primeiro conteúdo -->
+        <aside class="conteudo_pai" id="conteudo_inicial">
+            <section class="conteudo">
+                <img src="img/img1.jpg">
+                <div class="conteudo_info_pai">
+                <div class="conteudo_info_geral">
+                <div class="conteudo_info">
+                    <div class="conteudo_coluna" class="conteudo_coluna1">
+                        <p>ida</p>
+                    </div>
+                    <div class="cndborder">
+                        <i title="local da viagem" class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>Florianópolis</p>
+                    </div>
+                    <div class="cndborder2">
+                        <i title="data da viagem" class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                        <p>21.09.20</p>
+                    </div>
+                    <div class="cndborder">
+                        <i title="horário do vôo" class="fa fa-clock-o" aria-hidden="true"></i>
+                        <P>08:25h</P>
+                    </div>
+                    <div class="cndborder2">
+                        <i title ="avião" class="fa fa-plane" aria-hidden="true"></i>
+                        <p>Gol</p>
+                    </div>
+                </div>
+                <div class="conteudo_info">
+                    <div class="conteudo_coluna">
+                        <p>volta</p>
+                    </div>
+                    <div class="cndborder">
+                        <p>Porto Alegre</p>
+                    </div>
+                    <div class="cndborder2">
+                        <p>26.09.20</p>
+                    </div>
+                    <div class="cndborder">
+                        <p>10:05h</p>
+                    </div>
+                    <div class="cndborder2">
+                        <p>Gol</p>
+                    </div>
+                </div>
+                </div>
+                <div class="conteudo_preco">
+                    <h3>R$ 399,00</h3>
+                </div>
+                <a style="cursor:pointer;" >
+                    <div class="conteudo_logar" onclick="abrirModal(), efetuarCompra()">
+                        <h3>
+                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </h3>
+                    </div>
+                </a>
+                </div>
+            </section>
+        </aside>
+        <!-- fim do primeiro conteudo -->
+        
+         <!-- início do segundo conteúdo -->
+        <aside class="conteudo_pai">
+            <section class="conteudo">
+                <img src="img/img2.jpg">
+                <div class="conteudo_info_pai">
+                    <div class="conteudo_info_geral">
+                    <div class="conteudo_info">
+                        <div class="conteudo_coluna" class="conteudo_coluna1">
+                            <p>ida</p>
+                        </div>
+                        <div class="cndborder">
+                            <i title="local da viagem" class="fa fa-map-marker" aria-hidden="true"></i>
+                            <p>Rio de Janeiro</p>
+                        </div>
+                        <div class="cndborder2">
+                            <i title="data da viagem" class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                            <p>25.09.20</p>
+                        </div>
+                        <div class="cndborder">
+                            <i title="horário do vôo" class="fa fa-clock-o" aria-hidden="true"></i>
+                            <P>09:00h</P>
+                        </div>
+                        <div class="cndborder2">
+                            <i title ="avião" class="fa fa-plane" aria-hidden="true"></i>
+                            <p>Gol</p>
+                        </div>
+                    </div>
+                    <div class="conteudo_info">
+                        <div class="conteudo_coluna">
+                            <p>volta</p>
+                        </div>
+                        <div class="cndborder">
+                            <p>Porto Alegre</p>
+                        </div>
+                        <div class="cndborder2">
+                            <p>30.09.20</p>
+                        </div>
+                        <div class="cndborder">
+                            <p>16:00h</p>
+                        </div>
+                        <div class="cndborder2">
+                            <p>Gol</p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="conteudo_preco">
+                        <h3>R$ 389,00</h3>
+                    </div>
+                    <a style="cursor:pointer;">
+                        <div class="conteudo_logar" onclick="abrirModal(), efetuarCompra()">
+                            <h3>
+                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                            </h3>
+                        </div>
+                    </a>
+                </div>
+                
+            </section>
+        </aside>
+        <!-- fim do segundo conteudo -->
+        
+         <!-- início do terceiro conteúdo -->
+        <aside class="conteudo_pai" id="cancun">
+            <section class="conteudo">
+                <img src="img/img3.jpg">
+                <div class="conteudo_info_pai">
+                <div class="conteudo_info_geral">
+                <div class="conteudo_info">
+                    <div class="conteudo_coluna" class="conteudo_coluna1">
+                        <p>ida</p>
+                    </div>
+                    <div class="cndborder">
+                        <i title="local da viagem" class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>Cancún</p>
+                    </div>
+                    <div class="cndborder2">
+                        <i title="data da viagem" class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                        <p>01.10.20</p>
+                    </div>
+                    <div class="cndborder">
+                        <i title="horário do vôo" class="fa fa-clock-o" aria-hidden="true"></i>
+                        <P>09:05h</P>
+                    </div>
+                    <div class="cndborder2">
+                        <i title ="avião" class="fa fa-plane" aria-hidden="true"></i>
+                        <p>Gol</p>
+                    </div>
+                </div>
+                <div class="conteudo_info">
+                    <div class="conteudo_coluna">
+                        <p>volta</p>
+                    </div>
+                    <div class="cndborder">
+                        <p>Porto Alegre</p>
+                    </div>
+                    <div class="cndborder2">
+                        <p>07.10.20</p>
+                    </div>
+                    <div class="cndborder">
+                        <p>15:00h</p>
+                    </div>
+                    <div class="cndborder2">
+                        <p>Gol</p>
+                    </div>
+                </div>
+                </div>
+                <div class="conteudo_preco">
+                    <h3>R$ 2899,00</h3>
+                </div>
+                <a style="cursor:pointer;">
+                    <div class="conteudo_logar" onclick="abrirModal(), efetuarCompra()">
+                        <h3>
+                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </h3>
+                    </div>
+                </a>
+                </div>
+            </section>
+        </aside>
+        <!-- fim do terceiro conteudo -->
+        
+        <div id="abrir_conteudo_pai">
+        <div id="abrir_conteudo_mais" onclick="abrirConteudo()" style="cursor:pointer;"><i class="fa fa-angle-down" aria-hidden="true"></i>
+        </div>
+        </div>
+        
+        <!-- início do conteudo mais -->
+        <div id="conteudo_mais">
+        <aside class="conteudo_pai" id="dublin">
+            <section class="conteudo">
+                <img src="img/img4.jpg">
+                <div class="conteudo_info_pai">
+                <div class="conteudo_info_geral">
+                <div class="conteudo_info">
+                    <div class="conteudo_coluna" class="conteudo_coluna1">
+                        <p>ida</p>
+                    </div>
+                    <div class="cndborder">
+                        <i title="local da viagem" class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>Machu Picchu</p>
+                    </div>
+                    <div class="cndborder2">
+                        <i title="data da viagem" class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                        <p>04.10.20</p>
+                    </div>
+                    <div class="cndborder">
+                        <i title="horário do vôo" class="fa fa-clock-o" aria-hidden="true"></i>
+                        <P>11:05h</P>
+                    </div>
+                    <div class="cndborder2">
+                        <i title ="avião" class="fa fa-plane" aria-hidden="true"></i>
+                        <p>Gol</p>
+                    </div>
+                </div>
+                <div class="conteudo_info">
+                    <div class="conteudo_coluna">
+                        <p>volta</p>
+                    </div>
+                    <div class="cndborder">
+                        <p>Porto Alegre</p>
+                    </div>
+                    <div class="cndborder2">
+                        <p>11.10.20</p>
+                    </div>
+                    <div class="cndborder">
+                        <p>15:15h</p>
+                    </div>
+                    <div class="cndborder2">
+                        <p>Gol</p>
+                    </div>
+                </div>
+                    </div>
+                <div class="conteudo_preco">
+                    <h3>R$ 1834,00</h3>
+                </div>
+                <a style="cursor:pointer;">
+                    <div class="conteudo_logar" onclick="abrirModal(), efetuarCompra()">
+                        <h3>
+                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </h3>
+                    </div>
+                </a>
+                </div>
+            </section>
+            </aside>
+            <aside class="conteudo_pai">
+            <section class="conteudo">
+                <img src="img/img5.jpg">
+                <div class="conteudo_info_pai">
+                <div class="conteudo_info_geral">
+                <div class="conteudo_info">
+                    <div class="conteudo_coluna" class="conteudo_coluna1">
+                        <p>ida</p>
+                    </div>
+                    <div class="cndborder">
+                        <i title="local da viagem" class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>Las Vegas</p>
+                    </div>
+                    <div class="cndborder2">
+                        <i title="data da viagem" class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                        <p>08.10.20</p>
+                    </div>
+                    <div class="cndborder">
+                        <i title="horário do vôo" class="fa fa-clock-o" aria-hidden="true"></i>
+                        <P>09:05h</P>
+                    </div>
+                    <div class="cndborder2">
+                        <i title ="avião" class="fa fa-plane" aria-hidden="true"></i>
+                        <p>Gol</p>
+                    </div>
+                </div>
+                <div class="conteudo_info">
+                    <div class="conteudo_coluna">
+                        <p>volta</p>
+                    </div>
+                    <div class="cndborder">
+                        <p>Porto Alegre</p>
+                    </div>
+                    <div class="cndborder2">
+                        <p>15.10.20</p>
+                    </div>
+                    <div class="cndborder">
+                        <p>16:00h</p>
+                    </div>
+                    <div class="cndborder2">
+                        <p>Gol</p>
+                    </div>
+                </div>
+                    </div>
+                <div class="conteudo_preco">
+                    <h3>R$ 2699,00</h3>
+                </div>
+                <a style="cursor:pointer;">
+                    <div class="conteudo_logar" onclick="abrirModal(), efetuarCompra()">
+                        <h3>
+                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </h3>
+                    </div>
+                </a>
+                </div>
+            </section>
+            </aside>
+            <aside class="conteudo_pai">
+            <section class="conteudo">
+                <img src="img/img6.jpg">
+                <div class="conteudo_info_pai">
+                <div class="conteudo_info_geral">
+                <div class="conteudo_info">
+                    <div class="conteudo_coluna" class="conteudo_coluna1">
+                        <p>ida</p>
+                    </div>
+                    <div class="cndborder">
+                        <i title="local da viagem" class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>Miami</p>
+                    </div>
+                    <div class="cndborder2">
+                        <i title="data da viagem" class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                        <p>21.10.20</p>
+                    </div>
+                    <div class="cndborder">
+                        <i title="horário do vôo" class="fa fa-clock-o" aria-hidden="true"></i>
+                        <P>09:05h</P>
+                    </div>
+                    <div class="cndborder2">
+                        <i title ="avião" class="fa fa-plane" aria-hidden="true"></i>
+                        <p>Gol</p>
+                    </div>
+                </div>
+                <div class="conteudo_info">
+                    <div class="conteudo_coluna">
+                        <p>volta</p>
+                    </div>
+                    <div class="cndborder">
+                        <p>Porto Alegre</p>
+                    </div>
+                    <div class="cndborder2">
+                        <p>28.10.20</p>
+                    </div>
+                    <div class="cndborder">
+                        <p>14:05h</p>
+                    </div>
+                    <div class="cndborder2">
+                        <p>Gol</p>
+                    </div>
+                </div>
+                    </div>
+                <div class="conteudo_preco">
+                    <h3>R$ 2099,00</h3>
+                </div>
+                <a style="cursor:pointer;">
+                    <div class="conteudo_logar" onclick="abrirModal(), efetuarCompra()">
+                        <h3>
+                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </h3>
+                    </div>
+                </a>
+                </div>
+            </section>
+            </aside>
+            <aside class="conteudo_pai">
+            <section class="conteudo">
+                <img src="img/img7.jpg">
+                <div class="conteudo_info_pai">
+                <div class="conteudo_info_geral">
+                <div class="conteudo_info">
+                    <div class="conteudo_coluna" class="conteudo_coluna1">
+                        <p>ida</p>
+                    </div>
+                    <div class="cndborder">
+                        <i title="local da viagem" class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p>Nova York</p>
+                    </div>
+                    <div class="cndborder2">
+                        <i title="data da viagem" class="fa fa-calendar-minus-o" aria-hidden="true"></i>
+                        <p>01.10.20</p>
+                    </div>
+                    <div class="cndborder">
+                        <i title="horário do vôo" class="fa fa-clock-o" aria-hidden="true"></i>
+                        <P>09:05h</P>
+                    </div>
+                    <div class="cndborder2">
+                        <i title ="avião" class="fa fa-plane" aria-hidden="true"></i>
+                        <p>Gol</p>
+                    </div>
+                </div>
+                <div class="conteudo_info">
+                    <div class="conteudo_coluna">
+                        <p>volta</p>
+                    </div>
+                    <div class="cndborder">
+                        <p>Porto Alegre</p>
+                    </div>
+                    <div class="cndborder2">
+                        <p>07.10.20</p>
+                    </div>
+                    <div class="cndborder">
+                        <p>15:05h</p>
+                    </div>
+                    <div id="maisd" class="cndborder2">
+                        <p>Gol</p>
+                    </div>
+                </div>
+                    </div>
+                <div class="conteudo_preco">
+                    <h3>R$ 2899,00</h3>
+                </div>
+                <a style="cursor:pointer;">
+                    <div class="conteudo_logar" onclick="abrirModal(), efetuarCompra()">
+                        <h3>
+                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </h3>
+                    </div>
+                </a>
+                </div>
+            </section>
+            </aside>
+        </div>
+        <!-- fim do conteúdo mais-->
+        
+        <!-- fim do conteúdo principal -->
+        </div>
+        
+        <!-- fechar conteúdo mais -->
+        <div id="fechar_conteudo_pai">
+        <div id="fechar_conteudo_mais" onclick="fecharConteudo()" style="cursor:pointer;">
+            <a href="#cancun"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+        </div>
+        </div>
+        
+            <aside class="conteudo_pai" id="dublin">
+            <section class="conteudo">
+            <div id="conteudo_flex">
+            <img src="img/imagem_mais.jpg">
+                <h3>A viagem ficou para depois? Tudo bem. Com o nosso cartão todas as suas compras valem pontos que não expiram. Obtenha pontos extras nas suas compras internacionais Seus pontos se renovam a cada nova compra Pagamento misto. Use seus pontos como parte do pagamento.
+            </h3>
+            </div>
+                </section>
+            </aside>
+        
+        <aside class="conteudo_pai" id="dublin">
+            <section class="conteudo">
+        <div id="mais_fotos">
+            <img src="img/imagem_mais2.jpg">
+            <img src="img/imagem_mais3.jpg">
+        </div>
+        </section>
+            </aside>
+    
+        <!-- redes sociais, mapa e créditos -->
+        <aside class="conteudo_pai">
+            <footer id="rodape">         
+                <div id="redes_sociais_rodape" class="redes_rodape">
+                    <a id="facebook" title="Facebook" href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a id="twitter" title="Twitter" href="https://twitter.com/" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a id="google" title="Google +" href="https://myaccount.google.com/" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
+                    <a id="instagram" title="Instagram" href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a id="gmail" title="Email" href="https://mail.google.com/" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+                </div>
+                <div id="localizacao">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.5112484931988!2d-51.17756978488602!3d-29.993473181900857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519775afc8a359f%3A0xc999a14760dd538f!2sAeroporto%20Internacional%20Porto%20Alegre%20Salgado%20Filho!5e0!3m2!1spt-BR!2sbr!4v1599063986442!5m2!1spt-BR!2sbr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+                <p id="creditos">
+                    <em>
+                        NVôos está presente em Brasil, Argentina, Bolívia, Chile, Colômbia, Costa Rica, Equador, El Salvador, Guatemala, Honduras, México, Nicarágua, Panamá, Paraguai, Peru, Porto Rico, República Dominicana, Estados Unidos, Uruguai. NVÔOS.COM - Ministério do Turismo - Cadastur 11.011111.10.0001-1 / 22.022222.10.0002-1 Copyright 9999-9090, NVôos.com Ltda. Todos os direitos reservados.
+                        passageiros transportados. Wikipédia
+                        Endereço: Av. Severo Dullius, 90.010 - São João, Porto Alegre - RS, 90200-310
+                        Código: POA
+                        Elevação: 3 m
+                        Telefone: (51) 9999-1000
+                        Passageiros: 8 292 608 passageiros (BR: 8º)
+                    </em>
+                    <em>
+                        A NVôos comercializa os produtos de seus fornecedores apenas de forma direta pelo seu site (www.nvôos.com). Não há qualquer venda por redes sociais (Facebook, Instagram, Twitter, LinkedIn, etc.). Pós-vendas - os canais oficiais de atendimento aos clientes são: por meio do telefone ou em Porto Alegre. A NVôos não realiza qualquer tipo de abordagem nas redes sociais ou sites de relacionamento, tampouco disponibiliza e-mails de contato com domínios distintos de @nvoos.com. Endereços de e-mails com domínios: @hotmail.com @gmail.com @outlook.com ou qualquer outro neste sentido não tem qualquer relação com a NVôos. Para mais esclarecimentos entre em contato.
+                    </em>
+                </p>
+            </footer>
+        </aside>
+        
+        <!-- JS, Popper.js e jQuery. (online) -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        
+        <!-- JS externo -->
+        <script type="text/javascript" src="js/funcoes.js"></script>
+    </body>
+</html>
